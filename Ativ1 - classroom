@@ -1,0 +1,80 @@
+****HTML****
+
+<template>
+	<lightning-card>
+
+		<div class="empresa">
+			<h3>Empresa: {Empresa}</h3>
+			<p>CNPJ: {cnpj}</p>
+			<p>Endereço: {Endereco}</p>
+		</div>
+		<div class="produto" if:true={visible}>
+			<h3>Produto: {Produto}</h3>
+			<p>Descrição: {Descricao}</p>
+			<p>Preço: R$ {Preco}</p>
+		</div>
+		<div class="promoção" if:true={visible}>
+			<h3>Promoção</h3>
+			<p>Oferta 1: {Oferta1}</p>
+			<p>Oferta 2: {Oferta2}</p>
+		</div>
+		<div class="botão">
+
+			<lightning-button variant="brand online" label="Ocultar Produto e Promoçao" title="Ocultar Produto e Promoção"
+				onclick={OcultaDiv} class="slds-m-left_x-small"></lightning-button>
+		</div>
+
+	</lightning-card>
+</template>
+
+
+****JS *****
+import { LightningElement } from "lwc";
+
+export default class App extends LightningElement {
+   
+   
+        Empresa = 'Carrefour';
+        CNPJ = '12.568.000-145';
+        Endereco = 'Av. Alcantara Machado, 21547, São Paulo, Estado';
+        Produto = 'Cadeira gamer';
+        Descricao = 'Cadeira preta em couro';
+        Preco = '699,99';
+        Oferta1 = 'Comprando duas, 10% de desconto';
+        Oferta2 = 'Pagando à vista, 15% de desconto';
+ 
+
+
+visible= true;
+
+OcultaDiv(){
+  this.visible=!this.visible;
+  }
+
+}
+
+
+
+*****CSS*****
+
+
+.empresa,
+.produto,
+.promoção {
+    border: 1px solid blue;
+    padding: 2 px;
+    font-size: medium;
+
+}
+.h3{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+    font-style: bold;
+}
+
+.botão {
+    justify-self: right;
+    margin-top: 1rem;
+   
+   
+}
