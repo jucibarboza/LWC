@@ -1,0 +1,75 @@
+***HTML****
+
+<template>
+	<lightning-card>
+		<div class="slds-m-arround_medium" if:true={visible}>
+			<h1 class="slds-text-heading_large">
+				Trazer dados da Classe
+			</h1>
+			<p> Nome: {nome}</p>
+			<p> Telefone: {telefone} </p>
+			<p> CPF: {cpf} </p>
+			<p> Idade: {idade} </p>
+		</div>
+
+		<div class="slds-m-arround_medium">
+			<h1 class="slds-text-heading_large">
+				Outros Dados
+			</h1>
+
+			p> Email: {email} </p>
+			<p> Instagram: <a href={instagram} target="_blank">Clique Aqui</a></p>
+			<p> LinkedIN: <a href={linkedin} target="_blank">Clique Aqui</a> </p>
+
+		</div>
+
+		<lightning-button variant="brand" label="Trocar Div" title="Alterar Visible" onclick={trocarDiv}
+			class="slds-m-left_x-small"></lightning-button>
+		<lightning-button variant="brand Outline" label="Alternar Valores" title="Alterar Valores" onclick={alternarValores}
+			class="slds-m-left_x-small"></lightning-button>
+
+	</lightning-card>
+</template>
+
+
+*****JS******
+
+import { LightningElement } from "lwc";
+export default class App extends LightningElement {
+
+
+ nome = "Jucilene";
+  telefone = "8989898989";
+  cpf = "000.111.222-23";
+  idade = 47;
+  email = "f@f.com";
+  instagram = "https://www.google.com";
+  linkedin = "https://www.xbox.com";
+  visible = true;
+  
+
+
+  alternarValores() {
+    if (this.nome === "Jucilene") {
+      this.nome = "Beatriz";
+      this.telefone = "145785411";
+      this.cpf = "989.658.597-40";
+      this.idade = 15;
+      this.email = "biaa@bia.com";
+      this.instagram = "@bilu";
+      this.linkedin = "linkedin.com/in/bia";
+    } else {
+      this.nome = "Jucilene";
+      this.telefone = "8989898989";
+      this.cpf = "000.111.222-23";
+      this.idade = 47;
+      this.email = "f@f.com";
+      this.instagram = "https://www.google.com";
+      this.linkedin = "https://www.xbox.com";
+    }
+  }
+
+  trocarDiv() {
+    this.visible = !this.visible;
+  }
+}
