@@ -1,0 +1,46 @@
+***** HTML *****
+<template>
+	<lightning-card>
+
+		<h1>Quem é esse pokemon?</h1>
+		<div title="Quem é esse pokemon?">
+
+			<img src="https://img.playbuzz.com/image/upload/ar_1.5,c_pad,f_jpg,b_auto/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/cdn/5dd1da62-7fad-4065-ac16-928d743a2176/7af3b478-4cfa-4fce-8c24-af07c24c38c5.jpg" class="pokemon" if:true={visible} onclick={OcultaDiv}>
+			<img src="https://img.playbuzz.com/image/upload/ar_1.5,c_pad,f_jpg,b_auto/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/cdn/5dd1da62-7fad-4065-ac16-928d743a2176/98a48255-bedb-46d7-8f6e-a54229d3c75d.jpg" class="pokemon" if:false={visible} onclick={OcultaDiv}>
+
+		</div>
+
+
+	</lightning-card>
+</template>
+
+****JS*****
+
+import { LightningElement } from "lwc";
+
+export default class App extends LightningElement {
+
+
+visible= true;
+
+OcultaDiv(){
+  this.visible=!this.visible;
+  }
+
+}
+
+****CSS*****
+
+h1 {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: x-large;
+    color: orangered;
+
+}
+.pokemon{
+    border-radius: 15px;
+    border: 2px;
+
+
+}
